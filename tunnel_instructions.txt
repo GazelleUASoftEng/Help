@@ -1,0 +1,43 @@
+Phase 1: SSH Tunnel
+
+1) Download putty http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+
+2) Open Putty and put "uaf130590.ddns.uark.edu" as the Host Name
+
+3) In the Category Panel Under "SSH" select "Tunnels"
+
+4) For Source port put "5432" and for Destination put "localhost:5432" leave everything else at the default
+
+5) click the "Add" button
+
+6) Under Category click on "Session"
+
+7) in the input box labeled "Saved Sessions" put "gazelleSSH" (or whatever you want to name it) 
+
+8) click "save"
+
+9) now click "open"
+
+10) log in to the VM with your credentials
+
+ 1
+Phase 2: pgAdmin connection
+
+1) open pgAdmin
+
+2) if the "New Server Registration" dialog box doesn't appear click the plug icon to open it
+
+3) Fill out the Properties with the following info:
+Name: Gazelle (or whatever you want)
+Host: localhost
+Port: 5432
+MaintenanceDB: postgres
+Username: gazelle
+
+3a) all other fields should be the blank or the default
+
+4) click the "Advanced tab" and un-check the "Connect now" box
+
+5) click the "OK" button
+
+6) in the left hand pane of pgAdmin you should have a connection under "Servers" matching the name you put in. Click on that and you should be prompted for a password after which you should be able to connect to your server.
