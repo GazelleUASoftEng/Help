@@ -1,0 +1,50 @@
+To get Gazelle-Models and Gazelle-Client to work:
+
+1. Fork Dr. Phillips npcdataaccess to your own repository.
+
+2. Clone that directory to your local directory like so:
+git clone https://github.com/ThyRex3/npcdataaccess.git
+
+3. Import npcdataacess into Eclipse by going to File > Import.
+
+4. Drop down Maven > Existing Maven Projects, then click Next.
+
+5. For Root Directory, browse for the directory you clone npcdataaccess.
+
+6. Check /npcdataaccess/pom.xml and click Finish.
+
+7. You need to edit 3 files.
+
+8. Your first file is BaseRepository.java in dataacess > src > org.npc.dataaccess.repository
+
+9. Press Ctrl + End and look for:
+private static final String CONNECTION_STRING = "localhost:5432/rphillipsdb?user=rphillips&password=";
+
+10. Change it to:
+private static final String CONNECTION_STRING = "localhost:5432/gazelledb?user=gazelle&password=gazelle123";
+
+11. Press Ctrl + S to save and then on to the second file.
+
+12. The second file is DatabaseTable.java in dataacess > src > org.npc.dataccess.repository
+
+13. The top of the file looks like:
+NONE(""),
+PRODUCT("product");
+
+14. To make it work with Employee, Transaction, and Product, change it:
+NONE(""),
+EMPLOYEE("employee"),
+TRANSACTION("transaction"),
+PRODUCT("product");
+(If you have a different table like TenderEntry, make sure you add it in like TENDERENTRY("tenderentry") and depending on where you put it, make sure it has a common or semicolon)
+
+15. Your last file is BaseFieldNames.java in dataaccess > src > org.npc.dataaccess.model.
+
+16. Change:
+public static final String ID = "id";
+
+to
+
+public static final String ID = "record_id";
+
+17. Now you should be able to just run the scripts in Gazelle Client and look at the tables in pgAdmin and see the new entry you made! Feel free to change up the values.
