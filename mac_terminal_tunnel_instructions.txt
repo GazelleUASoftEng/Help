@@ -1,0 +1,2 @@
+ssh -L 5432:localhost:5432 YOURUSERNAME@uaf130590.ddns.uark.edu
+ 
