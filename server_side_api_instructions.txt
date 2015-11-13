@@ -1,0 +1,47 @@
+Be sure to have Tomcat installed and ready to go in Eclipse as a server. If you do not, please ask me for questions, or look on YouTube. There are very helpful YouTube videos.
+
+Note: I only got the browser to run correctly. I can't deploy other resources, but I will post separate instructions for that when I figure that out.
+
+IMPORTANT: If you have any other Apache processes running, please end those processes or you WILL get an error saying Port 8080 is in use.
+
+1. Import "npctest" into Eclipse. For some reason, I could not just import it from a Git repository in Eclipse so I had to go to command prompt:
+git clone https://github.com/GazelleUASoftEng/npctest.git
+And then manually import an "Existing Maven Projects" >> "/npctest/pom.xml".
+
+2. Right click on the "test" project in Project Explorer.
+
+3. In the side bar, select "Targeted Runtimes" and check Apache Tomcat. Click on "Apply".
+
+4. At this point, you'll see there are no compile errors, but there are warnings due some unused imports. I went ahead and deleted them because I think they're unnecessary.
+
+5. Right click on the "test" project again.
+
+6. In the side bar, select "Project Facets".
+
+7. Make sure "Dynamic Web Module", "Java", "JavaScript", and "JAX-RS (REST Web Services)" are selected.
+
+8. Click "Apply".
+
+9. In the side bar, go to "Java Build Path".
+
+10. This is weird, but it works for me. But REMOVE "JRE System Library".
+
+11. Then, click on "Add Library...".
+
+12. Select "JRE System Library".
+
+13. Select "Workspace default JRE" and then click "Finish".
+
+14. Within the same tab, select "Source" from your current tab (which is "Libraries"), and remove "test/test".
+
+15. Click on "Apply" and then "Ok".
+
+16. Right click on the "test" project in the Project Explorer, go down to "Run As" >> "Run on Server". 
+
+17. It should pop up something like a browser within Eclipse with a HTTP Status 404 - Not Found.
+
+18. In the URL where it says: http://localhost:8080/test, change it to http://localhost:8080/test/product/test.
+
+19. You should get the number 4! And you have successfully set up the server-side API!
+
+20. Now, I don't know know what to do with it, so talk to Dr. Phillips. :D Please let me know if you come across any problems because most likely, I came across them too.
